@@ -1,8 +1,16 @@
 import React from 'react'
 
+import Logo from './Logo'
+import Navbar from './Navbar'
+import Socials from './Socials'
+
 const Header = () => {
   return (
-    <header>Header</header>
+    <header>
+        <Logo/>
+        <Navbar/>
+        <Socials/>
+    </header>
   )
 }
 
