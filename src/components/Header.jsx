@@ -6,7 +6,7 @@ import Socials from './Socials'
 
 const Header = () => {
   return (
-    <header>
+    <header className='flex flex-row'>
         <Logo/>
         <Navbar/>
         <Socials/>
