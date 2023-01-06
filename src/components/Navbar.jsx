@@ -3,12 +3,11 @@ import React from "react";
 import { links } from "../data/fakeData";
 
 const Navbar = () => {
-  
   return (
     <nav className="flex gap-10">
       {links.map((link) => (
         <div  className="md:cursor-pointer py-1 hover:bg-slate-50 group">
-          <div className="font-bold px-4">
+          <div className="font-bold px-4 py-2">
             {link.name}
           </div>
           <div>
