@@ -58,22 +58,26 @@ const Navbar = () => {
   return (
     <nav className="flex gap-5">
       {links.map((link) => (
-        <div>
-          <div className="cursor-pointer px-4 py-1 text-left font-bold hover:bg-slate-50">{link.name}</div>
+        <div  className="md:cursor-pointer px-4 py-1 text-left font-bold hover:bg-slate-50 group">
+          <div>
+            {link.name}
+          </div>
           <div>
             {link.submenu && (
-              <div className="absolute top-10 bg-orange-300 p-3">
-                <div className="grid grid-cols-3 gap-10">
-                  {link.sublinks.map((sublink) => (
-                    <div>
-                      <div className="font-bold">{sublink.head}</div>
+              <div className="">
+                <div className="absolute top-10 bg-orange-300 p-3 hidden group-hover:block hover:block">
+                  <div className="grid grid-cols-3 gap-5">
+                    {link.sublinks.map((sublink) => (
                       <div>
-                        {sublink.sublinkArray.map((item) => (
-                          <div>{item.name}</div>
-                        ))}
+                        <div className="font-bold">{sublink.head}</div>
+                        <div>
+                          {sublink.sublinkArray.map((item) => (
+                            <div>{item.name}</div>
+                          ))}
+                        </div>
                       </div>
-                    </div>
-                  ))}
+                    ))}
+                  </div>
                 </div>
               </div>
             )}
