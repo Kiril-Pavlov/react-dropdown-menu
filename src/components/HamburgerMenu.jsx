@@ -15,7 +15,7 @@ const HamburgerMenu = () => {
             <MdClose size={25} fill="black" onClick={()=>setIsOpen(!isOpen)}/>
         )}
       </div>
-      <div className="fixed md:hidden w-full h-screen top-12 left-0 bg-slate-500">
+      <div className={isOpen?"fixed md:hidden w-full h-screen top-12 left-0 bg-slate-500  transition-all duration-500":"fixed md:hidden w-full h-screen top-12 left-[-100%] bg-slate-500 transition-all duration-500"}>
 
       </div>
     </div>
