@@ -1,4 +1,5 @@
 import React from 'react'
+import HamburgerMenu from './HamburgerMenu'
 
 import Logo from './Logo'
 import Navbar from './Navbar'
@@ -10,6 +11,7 @@ const Header = () => {
         <Logo/>
         <Navbar/>
         <Socials/>
+        <HamburgerMenu/>
     </header>
   )
 }
