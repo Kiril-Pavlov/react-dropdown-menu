@@ -1,14 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 
 import { GiHamburgerMenu } from "react-icons/gi";
+import { MdClose } from "react-icons/md"
 
 const HamburgerMenu = () => {
+    const [isOpen,setIsOpen]=useState(false)
   return (
     <div>
       <div className="flex md:hidden">
-        <GiHamburgerMenu size={25} fill="black" />
+        {isOpen===false ?(
+
+            <GiHamburgerMenu size={25} fill="black" onClick={()=>setIsOpen(!isOpen)}/>
+        ):(
+            <MdClose size={25} fill="black" onClick={()=>setIsOpen(!isOpen)}/>
+        )}
       </div>
-      <div className="fixed md:hidden w-full h-52 top-12 left-0 bg-slate-500">
+      <div className="fixed md:hidden w-full h-screen top-12 left-0 bg-slate-500">
 
       </div>
     </div>
