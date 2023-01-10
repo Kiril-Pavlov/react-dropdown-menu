@@ -1,9 +1,18 @@
-import React from 'react'
+import React from "react";
+
+import { GiHamburgerMenu } from "react-icons/gi";
 
 const HamburgerMenu = () => {
   return (
-    <div>HamburgerMenu</div>
-  )
-}
+    <div>
+      <div className="flex md:hidden">
+        <GiHamburgerMenu size={25} fill="black" />
+      </div>
+      <div className="fixed md:hidden w-full h-52 top-12 left-0 bg-slate-500">
 
-export default HamburgerMenu
+      </div>
+    </div>
+  );
+};
+
+export default HamburgerMenu;
