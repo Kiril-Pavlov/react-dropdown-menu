@@ -6,21 +6,22 @@ const Navbar = () => {
   return (
     <nav className="hidden md:flex gap-10">
       {links.map((link) => (
-        <div  className="md:cursor-pointer py-1 hover:bg-slate-50 group">
+        <div  className="md:cursor-pointer py-1 group">
           <div className="font-bold px-4 py-2">
             {link.name}
           </div>
           <div>
             {link.submenu && (
               <div className="">
-                <div className="absolute top-10 bg-orange-300 p-4 hidden group-hover:block hover:block">
-                  <div className="grid grid-cols-4 gap-3">
+                <div className="absolute top-10 p-4 hidden group-hover:block hover:block duration-500">
+                <div className="relative w-4 h-4 rotate-45 bg-white"></div>
+                  <div className="grid grid-cols-4 gap-3 bg-white relative top-[-10px] left-[-30px] p-4 rounded-2xl">
                     {link.sublinks.map((sublink) => (
                       <div>
-                        <div className="font-bold">{sublink.head}</div>
+                        <div className="font-bold text-black">{sublink.head}</div>
                         <div>
                           {sublink.sublinkArray.map((item) => (
-                            <div>{item.name}</div>
+                            <div className="text-black">{item.name}</div>
                           ))}
                         </div>
                       </div>

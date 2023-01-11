@@ -9,16 +9,16 @@ const HamburgerMenu = () => {
     <div className="flex md:hidden">
       <div>
         {isOpen ? (
-          <MdClose size={25} fill="black" onClick={() => setIsOpen(!isOpen)} />
+          <MdClose size={25} fill="white" onClick={() => setIsOpen(!isOpen)} />
         ) : (
-          <GiHamburgerMenu size={25} fill="black" onClick={() => setIsOpen(!isOpen)}/>
+          <GiHamburgerMenu size={25} fill="white" onClick={() => setIsOpen(!isOpen)}/>
         )}
       </div>
       <div
         className={
           isOpen
-            ? "fixed md:hidden w-full h-screen top-12 left-0 bg-slate-500  transition-all duration-500"
-            : "fixed md:hidden w-full h-screen top-12 left-[-100%] bg-slate-500 transition-all duration-500"
+            ? "fixed md:hidden w-full h-screen top-12 left-0  bg-blue-800/50 transition-all duration-500"
+            : "fixed md:hidden w-full h-screen top-12 left-[-100%] bg-blue-800/50 transition-all duration-500"
         }
       ></div>
     </div>
