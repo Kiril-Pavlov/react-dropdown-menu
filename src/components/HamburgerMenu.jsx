@@ -3,6 +3,8 @@ import React, { useState } from "react";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { MdClose } from "react-icons/md";
 
+import { links } from "../data/fakeData";
+
 const HamburgerMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
   return (
@@ -20,7 +22,13 @@ const HamburgerMenu = () => {
             ? "fixed md:hidden w-full h-screen top-12 left-0  bg-blue-800/50 transition-all duration-500"
             : "fixed md:hidden w-full h-screen top-12 left-[-100%] bg-blue-800/50 transition-all duration-500"
         }
-      ></div>
+      >
+        {links.map(link=>(
+          <div>
+            {link.name}
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
