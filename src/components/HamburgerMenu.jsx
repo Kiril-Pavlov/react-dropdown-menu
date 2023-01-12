@@ -13,7 +13,11 @@ const HamburgerMenu = () => {
         {isOpen ? (
           <MdClose size={25} fill="white" onClick={() => setIsOpen(!isOpen)} />
         ) : (
-          <GiHamburgerMenu size={25} fill="white" onClick={() => setIsOpen(!isOpen)}/>
+          <GiHamburgerMenu
+            size={25}
+            fill="white"
+            onClick={() => setIsOpen(!isOpen)}
+          />
         )}
       </div>
       <div
@@ -23,9 +27,25 @@ const HamburgerMenu = () => {
             : "fixed md:hidden w-full h-screen top-12 left-[-100%] bg-blue-800/50 transition-all duration-500"
         }
       >
-        {links.map(link=>(
-          <div>
-            {link.name}
+        {links.map((link) => (
+          <div key={link.name}>
+            <div className="font-bold">{link.name}</div>
+            {link.submenu && (
+              <div>
+                {link.sublinks.map((sublink) => (
+                  <div>
+                    <div>
+                      <div className="px-6">{sublink.head}</div>
+                    </div>
+                    <div>
+                      {sublink.sublinkArray.map((sublinkItem) => (
+                        <div className="px-12">{sublinkItem.name}</div>
+                      ))}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            )}
           </div>
         ))}
       </div>

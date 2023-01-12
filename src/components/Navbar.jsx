@@ -6,7 +6,7 @@ const Navbar = () => {
   return (
     <nav className="hidden md:flex gap-10">
       {links.map((link) => (
-        <div  className="md:cursor-pointer py-1 group">
+        <div  className="md:cursor-pointer py-1 group" key={link.name}>
           <div className="font-bold px-4 py-2">
             {link.name}
           </div>
