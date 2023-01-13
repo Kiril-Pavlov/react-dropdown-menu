@@ -8,6 +8,8 @@ import { links } from "../data/fakeData";
 const HamburgerMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [heading, setHeading] = useState("");
+  const [subHeading, setSubHeading] = useState("");
+
   return (
     <div className="flex md:hidden">
       <div>
@@ -30,8 +32,12 @@ const HamburgerMenu = () => {
       >
         {links.map((link) => (
           <div key={link.name}>
-            <div className="font-bold" 
-              onClick={() => heading !==link.name ? setHeading(link.name) : setHeading("")}>
+            <div
+              className="font-bold"
+              onClick={() =>
+                heading !== link.name ? setHeading(link.name) : setHeading("")
+              }
+            >
               {link.name}
             </div>
             {link.submenu && (
@@ -41,11 +47,22 @@ const HamburgerMenu = () => {
               `}
               >
                 {link.sublinks.map((sublink) => (
-                  <div>
+                  <div key={sublink.head}>
                     <div>
-                      <div className="px-6">{sublink.head}</div>
+                      <div
+                        className="px-6"
+                        onClick={() =>
+                          subHeading !== sublink.head
+                            ? setSubHeading(sublink.head)
+                            : setSubHeading("")
+                        }
+                      >
+                        {sublink.head}
+                      </div>
                     </div>
-                    <div>
+                    <div
+                      className={`${subHeading === sublink.head ? "md:hidden" : "hidden"}`}
+                    >
                       {sublink.sublinkArray.map((sublinkItem) => (
                         <div className="px-12">{sublinkItem.name}</div>
                       ))}
