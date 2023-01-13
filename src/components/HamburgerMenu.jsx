@@ -7,7 +7,7 @@ import { links } from "../data/fakeData";
 
 const HamburgerMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [heading,setHeading] = useState("")
+  const [heading, setHeading] = useState("");
   return (
     <div className="flex md:hidden">
       <div>
@@ -30,11 +30,16 @@ const HamburgerMenu = () => {
       >
         {links.map((link) => (
           <div key={link.name}>
-            <div className="font-bold" onClick={()=>setHeading(link.name)}>{link.name}</div>
+            <div className="font-bold" 
+              onClick={() => heading !==link.name ? setHeading(link.name) : setHeading("")}>
+              {link.name}
+            </div>
             {link.submenu && (
-              <div className={`
-                ${heading === link.name ? 'md:hidden' : 'hidden'}
-              `}>
+              <div
+                className={`
+                ${heading === link.name ? "md:hidden" : "hidden"}
+              `}
+              >
                 {link.sublinks.map((sublink) => (
                   <div>
                     <div>
