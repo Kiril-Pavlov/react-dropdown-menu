@@ -2,6 +2,7 @@ import React, { useState } from "react";
 
 import { GiHamburgerMenu } from "react-icons/gi";
 import { MdClose } from "react-icons/md";
+import { BsChevronDown, BsChevronUp } from "react-icons/bs";
 
 import { links } from "../data/fakeData";
 
@@ -33,12 +34,17 @@ const HamburgerMenu = () => {
         {links.map((link) => (
           <div key={link.name}>
             <div
-              className="font-bold"
+              className="flex items-center justify-between h-16 mx-5  border-b-2 border-sky-300/25"
               onClick={() =>
                 heading !== link.name ? setHeading(link.name) : setHeading("")
               }
             >
-              {link.name}
+              <div className="font-bold text-2xl">{link.name}</div>
+              {link.submenu && (
+                <div  className="font-bold text-2xl">
+                  {heading === link.name ? <BsChevronUp /> : <BsChevronDown />}
+                </div>
+              )}
             </div>
             {link.submenu && (
               <div
@@ -50,7 +56,7 @@ const HamburgerMenu = () => {
                   <div key={sublink.head}>
                     <div>
                       <div
-                        className="px-6"
+                        className="flex items-center justify-between h-8 mx-10  border-b-2 border-sky-300/25"
                         onClick={() =>
                           subHeading !== sublink.head
                             ? setSubHeading(sublink.head)
@@ -58,13 +64,22 @@ const HamburgerMenu = () => {
                         }
                       >
                         {sublink.head}
+                        <div>
+                          {subHeading === sublink.head ? (
+                            <BsChevronUp />
+                          ) : (
+                            <BsChevronDown />
+                          )}
+                        </div>
                       </div>
                     </div>
                     <div
-                      className={`${subHeading === sublink.head ? "md:hidden" : "hidden"}`}
+                      className={`${
+                        subHeading === sublink.head ? "md:hidden" : "hidden"
+                      }`}
                     >
                       {sublink.sublinkArray.map((sublinkItem) => (
-                        <div className="px-12">{sublinkItem.name}</div>
+                        <div className="mx-20 text-center border-b-2 border-sky-300/25">{sublinkItem.name}</div>
                       ))}
                     </div>
                   </div>
